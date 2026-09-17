@@ -15,13 +15,13 @@ const PORT = process.env.PORT || 2000;
 const cors = require("cors");
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://chronowatchcare.vercel.app",
-      "https://chrono-watch-care-production-7a92.up.railway.app",
-    ],
-  })
+    origin: ["http://localhost:5173", "https://chronowatchcare.vercel.app"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
 );
+
 // app.use(
 //   cors({
 //     origin: "*",
