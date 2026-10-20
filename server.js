@@ -13,6 +13,12 @@ connectDB();
 const PORT = process.env.PORT || 2000;
 
 const cors = require("cors");
+app.use(
+  cors({
+    origin: "https://chronowatchcare.vercel.app",
+    credentials: true,
+  })
+);
 // app.use(
 //   cors({
 //     origin: [
@@ -26,18 +32,7 @@ const cors = require("cors");
 //   }),
 // );
 
-const corsOptions = {
-  origin: [
-    "http://localhost:5173",
-    "https://chronowatchcare.vercel.app",
-  ],
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
 
-app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions));
 
 // app.use(
 //   cors({
